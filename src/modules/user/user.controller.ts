@@ -4,11 +4,7 @@ import { userService } from "./user.service";
 // POST | "/api/v1/users" | Create User
 const createUser = async (req: Request, res: Response) => {
   try {
-    const payload = {
-      name: req.body.name,
-      email: req.body.email,
-    };
-    const result = await userService.createUser(payload);
+    const result = await userService.createUser(req.body);
 
     res.status(201).json({
       success: true,
